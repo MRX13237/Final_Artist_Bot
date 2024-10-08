@@ -23,10 +23,11 @@
 
             //Main 
             greetings: { hello: 'Hi there!', hi: 'Hello!', hey: 'Hey!' , hola: 'Hola!' },
-            name: {'what is your name':'My developer named me as Artistbot','what should I call you': ' You can call me Artistbot'},
+            name: {'what is your name':'My developer named me as Artistbot'},
             assist:{'can you assist me': 'How may I help you?'},
             feelings: { 'how are you': 'I am just a bot, but I am here to help!' },
             exit: {goodbye: 'Have a great day!', exit: 'bye' , close: 'See you again!'},
+            thankyou: {thankyou: 'Your Welcome!', thanks: 'My pleasure'},
             default: "I don't have any information with that",
 
             //FAQ
@@ -81,17 +82,6 @@
         document.getElementById('user-input').addEventListener('keypress', function (e) {
             if (e.key === 'Enter') {
                 document.getElementById('send-button').click();
-            }
-        });
-         // Toggle chat visibility
-         document.getElementById('toggle-button').addEventListener('click', function () {
-            var chatContainer = document.getElementById('chat-container');
-            if (chatContainer.style.display === "none") {
-                chatContainer.style.display = "block";
-                this.textContent = "Hide Chat"; // Change button text
-            } else {
-                chatContainer.style.display = "none";
-                this.textContent = "Show Chat"; // Change button text
             }
         });
     </script>
