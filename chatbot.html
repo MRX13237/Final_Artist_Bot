@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artisthub</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="chatbot.png">
 </head>
 <body>
     <div id="chat-container">
@@ -17,9 +18,26 @@
     </div>
     <script>
         var responsesDatabase = {
-            greetings: { hello: 'Hi there!', hi: 'Hello!', hey: 'Hey!' },
+            //lowercase questions are for users
+            //Uppercase are the answers of the bot to the following
+
+            //Main 
+            greetings: { hello: 'Hi there!', hi: 'Hello!', hey: 'Hey!' , hola: 'Hola!' },
+            name: {'what is your name':'My developer named me as Artistbot','what should I call you': ' You can call me Artistbot'},
+            assist:{'can you assist me': 'How may I help you?'},
             feelings: { 'how are you': 'I am just a bot, but I am here to help!' },
-            default: "I'm sorry, I didn't understand that."
+            exit: {goodbye: 'Have a great day!', exit: 'bye' , close: 'See you again!'},
+            default: "I don't have any information with that",
+
+            //FAQ
+            artists: {'can you show me the local painters': 'Benedicto Reyes Cabrera, Jef Cablog, Jordan Mangosan, and Rishab Tibon' , 'can you show me the local artisans': 'Woodcarvers of Asin Road and Maria Oggay (Apo Whang-od) ' , 'can you show me the local sculpture': 'Ben-Hur Villanueva and Perry Mamaril ', 'can you show me the local film makers': 'Kidlat Tahimik', 'can you show me the local street artist': 'Venazir Martinez'},
+            products: {'do you sell artworks' : 'Yes, there are available artworks'},
+            commission:{'do you offer commission base works' : 'Yes, some local artist accepts custom artworks'},
+            prices:{'what are the prices': 'The prices depends on the work you request to a certain artist or artisans'},
+            contact:{'do you have contact details of artist or artisans': 'Some and we can provide you information such as contact numbers or email'},
+            events:{'what are the events' : 'We have Panagbenga, Sining Eskinita, Cordillera Weaves Exhibit, Annual Ibagiw Craft Designs, and Ibagiw Creative Festival'},
+            dates:{'what are the dates of the events' : 'Panagbenga Festival (February 1 - March 3) and Ibagiw Creative Festival (October to November (specific dates may vary each year))'}
+            
         };
 
         function getBotResponse(userInput) {
@@ -41,7 +59,7 @@
             if (sender === 'user') {
                 messageDiv.innerHTML = `${message} <img src="user.png" alt="${sender} image" class="${sender}-image">`;
             } else {
-                messageDiv.innerHTML = `<img src="chatbot.jpg" alt="${sender} image" class="${sender}-image"> ${message}`;
+                messageDiv.innerHTML = `<img src="chatbot.png" alt="${sender} image" class="${sender}-image"> ${message}`;
             }
 
             chatMessages.appendChild(messageDiv);
@@ -65,6 +83,22 @@
                 document.getElementById('send-button').click();
             }
         });
+         // Toggle chat visibility
+         document.getElementById('toggle-button').addEventListener('click', function () {
+            var chatContainer = document.getElementById('chat-container');
+            if (chatContainer.style.display === "none") {
+                chatContainer.style.display = "block";
+                this.textContent = "Hide Chat"; // Change button text
+            } else {
+                chatContainer.style.display = "none";
+                this.textContent = "Show Chat"; // Change button text
+            }
+        });
     </script>
+
+<footer>
+    <h5>Author: Artisthub</h5>
+    <p><a href="artshub.org">artshub.org</a></p>
+  </footer>
 </body>
 </html>

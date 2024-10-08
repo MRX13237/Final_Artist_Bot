@@ -2,23 +2,25 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: url(back.jpg);
+    filter: blur();
 }
 
 #chat-container {
     max-width: 400px;
     margin: 50px auto;
-    border: 1px solid #ccc;
+    border: 1px solid #000000;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.986);
 }
 
 #chat-header {
     background-color: #4CAF50;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 10px;
     text-align: center;
+    font-size: 1.8rem;
 }
 
 #chat-messages {
@@ -32,7 +34,7 @@ body {
 }
 
 #user-input {
-    flex-grow: 1; /* Allow input to take available space */
+    flex-grow: 3; /* Allow input to take available space */
     padding: 10px;
     border: none; 
     border-top: 1px solid #ccc; 
@@ -40,7 +42,7 @@ body {
 
 #send-button {
     background-color: #4CAF50; 
-    color: white; 
+    color: rgb(255, 255, 255); 
     border: none; 
     padding: 10px; 
     cursor: pointer; 
@@ -49,7 +51,7 @@ body {
 /* Bubble styles */
 .user,
 .bot {
-    margin-bottom: 10px; /* Space between messages */
+    margin-bottom: 15px; /* Space between messages */
 }
 
 .user {
@@ -63,7 +65,7 @@ body {
 /* User bubble */
 .user-message {
     display: inline-block; /* Change to inline-block for bubble effect */
-    background-color: #fff3cd; /* Light yellow for user */
+    background-color: #ac8916; /* Light yellow for user */
     border-radius: 15px; /* Rounded corners */
     padding: 10px; /* Padding inside the bubble */
     max-width: 70%; /* Limit width */
@@ -72,21 +74,37 @@ body {
 /* Bot bubble */
 .bot-message {
     display: inline-block; /* Change to inline-block for bubble effect */
-    background-color: #d1e7fd; /* Light blue for bot */
+    background-color: #407fbe; /* Light blue for bot */
     border-radius: 15px; /* Rounded corners */
     padding: 10px; /* Padding inside the bubble */
     max-width: 70%; /* Limit width */
 }
 
 /* Image styles */
-.user-image,
+.user-image{
+    width: 50px; 
+    height: 45px; 
+    border-radius: 50%; 
+}
 .bot-image {
-    width: 30px; 
-    height: 30px; 
+    width: 50px; 
+    height: 65px; 
     border-radius: 50%; 
 }
 
 .user-message img,
 .bot-message img {
    margin-left: 10px; 
+}
+
+.footer , p, h5{
+    z-index: index 1;
+    display: grid;
+    position:relative;
+    grid-area: footer;
+    min-height: 1rem;
+    left: 10%;
+    align-items: center;
+    display: contents;
+    
 }
