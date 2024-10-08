@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+#chat-container {
+    max-width: 400px;
+    margin: 50px auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chat-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+#chat-messages {
+    padding: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#input-area {
+    display: flex;
+}
+
+#user-input {
+    flex-grow: 1; /* Allow input to take available space */
+    padding: 10px;
+    border: none; 
+    border-top: 1px solid #ccc; 
+}
+
+#send-button {
+    background-color: #4CAF50; 
+    color: white; 
+    border: none; 
+    padding: 10px; 
+    cursor: pointer; 
+}
+
+/* Bubble styles */
+.user,
+.bot {
+    margin-bottom: 10px; /* Space between messages */
+}
+
+.user {
+    text-align: right;
+}
+
+.bot {
+    text-align: left;
+}
+
+/* User bubble */
+.user-message {
+    display: inline-block; /* Change to inline-block for bubble effect */
+    background-color: #fff3cd; /* Light yellow for user */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Padding inside the bubble */
+    max-width: 70%; /* Limit width */
+}
+
+/* Bot bubble */
+.bot-message {
+    display: inline-block; /* Change to inline-block for bubble effect */
+    background-color: #d1e7fd; /* Light blue for bot */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px; /* Padding inside the bubble */
+    max-width: 70%; /* Limit width */
+}
+
+/* Image styles */
+.user-image,
+.bot-image {
+    width: 30px; 
+    height: 30px; 
+    border-radius: 50%; 
+}
+
+.user-message img,
+.bot-message img {
+   margin-left: 10px; 
+}

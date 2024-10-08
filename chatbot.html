@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisthub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-header">ArtistBot</div>
+        <div id="chat-messages"></div>
+        <div id="input-area">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+    <script>
+        var responsesDatabase = {
+            greetings: { hello: 'Hi there!', hi: 'Hello!', hey: 'Hey!' },
+            feelings: { 'how are you': 'I am just a bot, but I am here to help!' },
+            default: "I'm sorry, I didn't understand that."
+        };
+
+        function getBotResponse(userInput) {
+            userInput = userInput.toLowerCase();
+            for (var category in responsesDatabase) {
+                if (responsesDatabase[category][userInput]) {
+                    return responsesDatabase[category][userInput];
+                }
+            }
+            return responsesDatabase.default;
+        }
+
+        function appendMessage(sender, message) {
+            var chatMessages = document.getElementById('chat-messages');
+            var messageDiv = document.createElement('div');
+            messageDiv.className = sender;
+
+            // Adjusting HTML structure for image placement
+            if (sender === 'user') {
+                messageDiv.innerHTML = `${message} <img src="user.png" alt="${sender} image" class="${sender}-image">`;
+            } else {
+                messageDiv.innerHTML = `<img src="chatbot.jpg" alt="${sender} image" class="${sender}-image"> ${message}`;
+            }
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        document.getElementById('send-button').addEventListener('click', function () {
+            var userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                appendMessage('user', userInput);
+                document.getElementById('user-input').value = '';
+                setTimeout(function () {
+                    var response = getBotResponse(userInput);
+                    appendMessage('bot', response);
+                }, 500);
+            }
+        });
+
+        document.getElementById('user-input').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                document.getElementById('send-button').click();
+            }
+        });
+    </script>
+</body>
+</html>
